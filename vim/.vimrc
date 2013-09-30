@@ -30,7 +30,7 @@ imap <right> <nop>
 abbr sn syntax on
 :redraw!
 
-function ToggleHex()
+function! ToggleHex()
 if !exists("g:Togglehexvar")
  let g:Togglehexvar=0
 endif
@@ -44,7 +44,7 @@ endif
 endfunction
 
 
-################
-# really cool!!!
-################
+"################
+"# really cool!!!
+"################
 let underlinecommand="g/^\\w/t.|s/./=/g"
