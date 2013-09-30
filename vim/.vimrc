@@ -11,11 +11,13 @@ set smartcase
 set scrolloff=2
 set ruler
 set backspace=2
-set tabstop=3
+set softtabstop=3
 set shiftwidth=3
 nnoremap k gk
 nnoremap j gj
-autocmd BufEnter * lcd %:p:h
+map <C-j> :bprev
+map <C-k> :bnext
+autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 map - -
 map + +
 map <F1> ggg?G:g/./m0:set rl!``
@@ -29,7 +31,6 @@ imap <left> <nop>
 imap <right> <nop>
 abbr sn syntax on
 :redraw!
-
 function! ToggleHex()
 if !exists("g:Togglehexvar")
  let g:Togglehexvar=0
@@ -42,9 +43,10 @@ else
  :let g:Togglehexvar=0
 endif
 endfunction
-
-
-"################
-"# really cool!!!
-"################
 let underlinecommand="g/^\\w/t.|s/./=/g"
+set backup
+set backupdir=~/vimfiles/backup
+set directory=~/vimfiles/tmp
+set scrolloff=5 " keep at least 5 lines above/below
+set sidescrolloff=5 " keep at least 5 lines left/right
+set statusline=%n\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
