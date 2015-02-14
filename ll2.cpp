@@ -17,5 +17,5 @@ struct ll *head //fix!!!!
 
 int main(int argv, char** argc)
 {
-
+   return 0;
 }
